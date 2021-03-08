@@ -8,6 +8,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "mobx": "^6.1.8",
     "mobx-react-lite": "^3.2.0",
     "mobx-state-tree": "^5.0.1",
@@ -22,6 +23,7 @@
     "eslint": "^7.21.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.22.0",
+    "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
     "react-scripts": "^4.0.3",
     "stylelint": "^13.12.0",

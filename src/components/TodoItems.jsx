@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 
 const TodoItems = ({ todos }) => (
-  <ul className='todo-items' style={{ listStyle: 'none' }}>
+  <ul className='todo-items list-group my-2'>
     {todos.map((todo, id) => (
       <TodoItem key={id} todo={todo} />
     ))}

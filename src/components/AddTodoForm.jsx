@@ -10,7 +10,7 @@ const AddTodoForm = ({ addTodo }) => {
   return (
     <form className='add-todo-form'>
       <button
-        className='add-todo-form__add-btn'
+        className='add-todo-form__add-btn btn btn-primary'
         type='submit'
         onClick={addTodoHandler}
       >

@@ -10,14 +10,14 @@ const App = () => {
   const { todos, addTodo, pendingCount, completedCount } = useStore()
 
   return (
-    <>
+    <div className='container my-3'>
       <AddTodoForm addTodo={addTodo} />
       <TodoItems todos={values(todos)} />
       <TodoCounter
         pendingCount={pendingCount}
         completedCount={completedCount}
       />
-    </>
+    </div>
   )
 }
 

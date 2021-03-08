@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { observer } from 'mobx-react-lite'
 
 const TodoItem = ({ todo }) => (
-  <li className='todo-item'>
+  <li className='todo-item d-flex align-items-center shadow-sm rounded p-3 my-1'>
     <input
       className='todo-item__done'
       type='checkbox'
@@ -11,7 +11,7 @@ const TodoItem = ({ todo }) => (
       onChange={() => todo.toggle()}
     />
     <input
-      className='todo-item__name'
+      className='todo-item__name form-control mx-3'
       type='text'
       value={todo.name}
       placeholder='Type a todo'
