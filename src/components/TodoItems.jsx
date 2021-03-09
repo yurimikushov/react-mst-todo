@@ -21,7 +21,15 @@ const TodoItems = ({ todos, deleteTodo }) => (
 )
 
 TodoItems.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      done: PropTypes.bool.isRequired,
+      toggle: PropTypes.func.isRequired,
+      setName: PropTypes.func.isRequired,
+    })
+  ).isRequired,
   deleteTodo: PropTypes.func.isRequired,
 }
 
