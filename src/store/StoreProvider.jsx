@@ -4,24 +4,28 @@ import { nanoid } from 'nanoid'
 import { RootStore } from './Root'
 
 const store = RootStore.create({
-  todos: {
-    [nanoid()]: {
+  todos: [
+    {
+      id: nanoid(),
       name: 'Buy a milk',
       done: false,
     },
-    [nanoid()]: {
+    {
+      id: nanoid(),
       name: 'Check email',
       done: false,
     },
-    [nanoid()]: {
+    {
+      id: nanoid(),
       name: 'Call John',
       done: true,
     },
-    [nanoid()]: {
+    {
+      id: nanoid(),
       name: 'Eat a cake',
       done: false,
     },
-  },
+  ],
 })
 
 const StoreContext = createContext()

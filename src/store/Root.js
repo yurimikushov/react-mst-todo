@@ -5,7 +5,7 @@ import { Todo } from './Todo'
 
 const RootStore = types
   .model({
-    todos: types.map(Todo),
+    todos: types.array(Todo),
   })
   .views((self) => ({
     get pendingCount() {
@@ -20,7 +20,7 @@ const RootStore = types
   }))
   .actions((self) => {
     const addTodo = (name = '') => {
-      self.todos.set(nanoid(), Todo.create({ name }))
+      self.todos.push(Todo.create({ name }))
     }
 
     return { addTodo }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { values } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useStore } from './store'
 import AddTodoForm from './components/AddTodoForm'
@@ -12,7 +11,7 @@ const App = () => {
   return (
     <div className='container my-3'>
       <AddTodoForm addTodo={addTodo} />
-      <TodoItems todos={values(todos)} />
+      <TodoItems todos={todos} />
       <TodoCounter
         pendingCount={pendingCount}
         completedCount={completedCount}

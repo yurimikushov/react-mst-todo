@@ -4,8 +4,8 @@ import TodoItem from './TodoItem'
 
 const TodoItems = ({ todos }) => (
   <ul className='todo-items list-group my-2'>
-    {todos.map((todo, id) => (
-      <TodoItem key={id} todo={todo} />
+    {todos.map((todo) => (
+      <TodoItem key={todo.id} todo={todo} />
     ))}
   </ul>
 )
