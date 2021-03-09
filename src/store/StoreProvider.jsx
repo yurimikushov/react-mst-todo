@@ -7,22 +7,22 @@ const store = RootStore.create({
   todos: [
     {
       id: nanoid(),
-      name: 'Buy a milk',
+      title: 'Buy a milk',
       done: false,
     },
     {
       id: nanoid(),
-      name: 'Check email',
+      title: 'Check email',
       done: false,
     },
     {
       id: nanoid(),
-      name: 'Call John',
+      title: 'Call John',
       done: true,
     },
     {
       id: nanoid(),
-      name: 'Eat a cake',
+      title: 'Eat a cake',
       done: false,
     },
   ],

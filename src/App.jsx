@@ -10,8 +10,8 @@ const App = () => {
     todos,
     addTodo,
     deleteTodo,
-    pendingCount,
-    completedCount,
+    pendingTodosCount,
+    completedTodosCount,
   } = useStore()
 
   return (
@@ -19,8 +19,8 @@ const App = () => {
       <AddTodoForm addTodo={addTodo} />
       <TodoItems todos={todos} deleteTodo={deleteTodo} />
       <TodoCounter
-        pendingCount={pendingCount}
-        completedCount={completedCount}
+        pendingCount={pendingTodosCount}
+        completedCount={completedTodosCount}
       />
     </div>
   )

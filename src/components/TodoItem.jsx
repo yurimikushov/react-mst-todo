@@ -13,9 +13,9 @@ const TodoItem = ({ todo, deleteTodo }) => (
     <input
       className='todo-item__name form-control mx-3'
       type='text'
-      value={todo.name}
+      value={todo.title}
       placeholder='Type a todo'
-      onChange={(e) => todo.setName(e.target.value)}
+      onChange={(e) => todo.setTitle(e.target.value)}
     />
     <button
       className='todo-item__delete-btn btn close fs-1'
@@ -28,10 +28,10 @@ const TodoItem = ({ todo, deleteTodo }) => (
 
 TodoItem.propTypes = {
   todo: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
-    setName: PropTypes.func.isRequired,
+    setTitle: PropTypes.func.isRequired,
   }).isRequired,
   deleteTodo: PropTypes.func.isRequired,
 }
