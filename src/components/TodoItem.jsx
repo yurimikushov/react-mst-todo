@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react-lite'
 
-const TodoItem = ({ todo }) => (
+const TodoItem = ({ todo, deleteTodo }) => (
   <li className='todo-item d-flex align-items-center shadow-sm rounded p-3 my-1'>
     <input
       className='todo-item__done'
@@ -17,11 +17,18 @@ const TodoItem = ({ todo }) => (
       placeholder='Type a todo'
       onChange={(e) => todo.setName(e.target.value)}
     />
+    <button
+      className='todo-item__delete-btn btn close fs-1'
+      onClick={deleteTodo}
+    >
+      <span>&times;</span>
+    </button>
   </li>
 )
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 }
 
 export default observer(TodoItem)

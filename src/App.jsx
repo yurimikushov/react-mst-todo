@@ -6,12 +6,18 @@ import TodoItems from './components/TodoItems'
 import TodoCounter from './components/TodoCounter'
 
 const App = () => {
-  const { todos, addTodo, pendingCount, completedCount } = useStore()
+  const {
+    todos,
+    addTodo,
+    deleteTodo,
+    pendingCount,
+    completedCount,
+  } = useStore()
 
   return (
     <div className='container my-3'>
       <AddTodoForm addTodo={addTodo} />
-      <TodoItems todos={todos} />
+      <TodoItems todos={todos} deleteTodo={deleteTodo} />
       <TodoCounter
         pendingCount={pendingCount}
         completedCount={completedCount}

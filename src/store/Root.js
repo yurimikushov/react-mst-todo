@@ -1,6 +1,5 @@
 import { types } from 'mobx-state-tree'
 import { values } from 'mobx'
-import { nanoid } from 'nanoid'
 import { Todo } from './Todo'
 
 const RootStore = types
@@ -14,16 +13,20 @@ const RootStore = types
     get completedCount() {
       return values(self.todos).filter((todo) => todo.done).length
     },
-    getTodosWhereDoneIs(done) {
-      return values(self.todos).filter((todo) => todo.done === done)
-    },
   }))
   .actions((self) => {
     const addTodo = (name = '') => {
       self.todos.push(Todo.create({ name }))
     }
 
-    return { addTodo }
+    const deleteTodo = (todoId) => {
+      self.todos = self.todos.filter((todo) => todo.id !== todoId)
+    }
+
+    return {
+      addTodo,
+      deleteTodo,
+    }
   })
 
 export { RootStore }
