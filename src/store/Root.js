@@ -15,7 +15,7 @@ const RootStore = types
     },
   }))
   .actions((self) => ({
-    addTodo: (title = '') => {
+    addTodo: (title) => {
       self.todos.push(Todo.create({ id: nanoid(), title }))
     },
     deleteTodo: (todoId) => {
