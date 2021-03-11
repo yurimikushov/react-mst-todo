@@ -12,6 +12,7 @@ const AddTodoForm = ({ addTodo }) => {
     }
 
     addTodo(todoTitle)
+    setTodoTitle('')
   }
 
   return (
