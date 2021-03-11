@@ -1,10 +1,13 @@
 import { types } from 'mobx-state-tree'
+import { fetchTodos } from '../api'
 import { nanoid } from 'nanoid'
 import { Todo } from './Todo'
 
 const RootStore = types
   .model({
     todos: types.array(Todo),
+    isPending: types.optional(types.boolean, false),
+    error: types.optional(types.string, ''),
   })
   .views((self) => ({
     get pendingTodosCount() {
@@ -15,6 +18,26 @@ const RootStore = types
     },
   }))
   .actions((self) => ({
+    fetchTodos: async () => {
+      self.setIsPending(true)
+
+      try {
+        self.fetchTodosSuccess(await fetchTodos())
+      } catch (err) {
+        self.fetchTodosError(err)
+      }
+
+      self.setIsPending(false)
+    },
+    fetchTodosSuccess: (todos) => {
+      self.todos = todos
+    },
+    fetchTodosError: (error) => {
+      self.error = error
+    },
+    setIsPending: (isPending) => {
+      self.isPending = isPending
+    },
     addTodo: (title) => {
       self.todos.push(Todo.create({ id: nanoid(), title }))
     },
