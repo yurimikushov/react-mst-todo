@@ -1,36 +1,38 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '../store'
 import TodoItem from './TodoItem'
+import Loader from './Loader'
 
-const TodoItems = ({ todos, deleteTodo }) => (
-  <ul className='todo-items list-group my-2'>
-    {todos.length > 0 ? (
-      todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          deleteTodo={() => deleteTodo(todo.id)}
-        />
-      ))
-    ) : (
-      <div className='dont-have-todos-alert alert alert-light'>
-        You don&apos;t have any todo
-      </div>
-    )}
-  </ul>
-)
+const TodoItems = () => {
+  const { isPending, todos, deleteTodo } = useStore()
 
-TodoItems.propTypes = {
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      done: PropTypes.bool.isRequired,
-      toggle: PropTypes.func.isRequired,
-      setTitle: PropTypes.func.isRequired,
-    })
-  ).isRequired,
-  deleteTodo: PropTypes.func.isRequired,
+  if (isPending) {
+    return (
+      <Loader
+        className='m-2 d-flex justify-content-center align-items-center text-secondary'
+        style={{ height: '300px' }}
+      />
+    )
+  }
+
+  return (
+    <ul className='todo-items list-group my-2'>
+      {todos.length > 0 ? (
+        todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            deleteTodo={() => deleteTodo(todo.id)}
+          />
+        ))
+      ) : (
+        <div className='dont-have-todos-alert alert alert-light'>
+          You don&apos;t have any todo
+        </div>
+      )}
+    </ul>
+  )
 }
 
-export default TodoItems
+export default observer(TodoItems)

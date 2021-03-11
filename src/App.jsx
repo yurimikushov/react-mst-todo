@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import { useStore } from './store'
 import AddTodoForm from './components/AddTodoForm'
@@ -7,17 +7,20 @@ import TodoCounter from './components/TodoCounter'
 
 const App = () => {
   const {
-    todos,
+    fetchTodos,
     addTodo,
-    deleteTodo,
     pendingTodosCount,
     completedTodosCount,
   } = useStore()
 
+  useEffect(() => {
+    fetchTodos()
+  }, [fetchTodos])
+
   return (
     <div className='container my-3'>
       <AddTodoForm addTodo={addTodo} />
-      <TodoItems todos={todos} deleteTodo={deleteTodo} />
+      <TodoItems />
       <TodoCounter
         pendingCount={pendingTodosCount}
         completedCount={completedTodosCount}
