@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '../store'
 
-const AddTodoForm = ({ addTodo }) => {
+const AddTodoForm = () => {
+  const { addTodo } = useStore()
   const [todoTitle, setTodoTitle] = useState('')
 
   const addTodoHandler = (e) => {
@@ -35,8 +37,4 @@ const AddTodoForm = ({ addTodo }) => {
   )
 }
 
-AddTodoForm.propTypes = {
-  addTodo: PropTypes.func.isRequired,
-}
-
-export default AddTodoForm
+export default observer(AddTodoForm)

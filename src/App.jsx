@@ -6,12 +6,7 @@ import TodoItems from './components/TodoItems'
 import TodoCounter from './components/TodoCounter'
 
 const App = () => {
-  const {
-    fetchTodos,
-    addTodo,
-    pendingTodosCount,
-    completedTodosCount,
-  } = useStore()
+  const { fetchTodos } = useStore()
 
   useEffect(() => {
     fetchTodos()
@@ -19,12 +14,9 @@ const App = () => {
 
   return (
     <div className='container my-3'>
-      <AddTodoForm addTodo={addTodo} />
+      <AddTodoForm />
       <TodoItems />
-      <TodoCounter
-        pendingCount={pendingTodosCount}
-        completedCount={completedTodosCount}
-      />
+      <TodoCounter />
     </div>
   )
 }

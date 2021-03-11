@@ -1,15 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '../store'
 
-const TodoCounter = ({ pendingCount, completedCount }) => (
-  <div className='todo-totals text-secondary'>
-    {pendingCount} pending, {completedCount} completed
-  </div>
-)
+const TodoCounter = () => {
+  const { pendingTodosCount, completedTodosCount } = useStore()
 
-TodoCounter.propTypes = {
-  pendingCount: PropTypes.number.isRequired,
-  completedCount: PropTypes.number.isRequired,
+  return (
+    <div className='todo-totals text-secondary'>
+      {pendingTodosCount} pending, {completedTodosCount} completed
+    </div>
+  )
 }
 
-export default TodoCounter
+export default observer(TodoCounter)
