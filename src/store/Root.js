@@ -6,7 +6,7 @@ import { Todo } from './Todo'
 const RootStore = types
   .model({
     todos: types.array(Todo),
-    isPending: types.optional(types.boolean, false),
+    isPending: types.optional(types.boolean, true),
     error: types.optional(types.string, ''),
   })
   .views((self) => ({
