@@ -3,7 +3,11 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from '../store'
 
 const TodoCounter = () => {
-  const { pendingTodosCount, completedTodosCount } = useStore()
+  const { isPending, pendingTodosCount, completedTodosCount } = useStore()
+
+  if (isPending) {
+    return null
+  }
 
   return (
     <div className='todo-totals text-secondary'>
