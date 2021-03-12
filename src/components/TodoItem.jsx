@@ -6,10 +6,7 @@ const TodoItem = ({ todo, deleteTodo }) => {
   const [todoEditable, setTodoEditable] = useState(false)
 
   return (
-    <li
-      className='todo-item d-flex align-items-center shadow-sm rounded p-3 my-1'
-      onClick={() => setTodoEditable(true)}
-    >
+    <li className='todo-item d-flex align-items-center shadow-sm rounded p-3 my-1'>
       <input
         className='todo-item__done'
         type='checkbox'
@@ -27,7 +24,13 @@ const TodoItem = ({ todo, deleteTodo }) => {
           autoFocus={true}
         />
       ) : (
-        <div className='todo-item__name w-100 mx-3'>{todo.title}</div>
+        <div
+          className='todo-item__name w-100 mx-3'
+          style={{ minHeight: '1rem', cursor: 'pointer' }}
+          onClick={() => setTodoEditable(true)}
+        >
+          {todo.title}
+        </div>
       )}
       <button
         className='todo-item__delete-btn btn close ml-auto'
