@@ -2,6 +2,8 @@
 
 This is a simple todo app. Here I improved my knowledge of React, MobX-state-tree and Bootstrap CSS framework.
 
+![Preview](docs/img/preview.png)
+
 # For developers
 
 Installs the project
