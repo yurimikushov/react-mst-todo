@@ -1,6 +1,6 @@
 # react-mst-todo
 
-Soon...
+This is a simple todo app. Here I improved my knowledge of React, MobX-state-tree and Bootstrap CSS framework.
 
 # For developers
 
